@@ -1,43 +1,30 @@
 # leanclr4unity_demo
 
-本项目是 [leanclr4unity](https://github.com/focus-creative-games/leanclr4unity) 的示例项目。
+[leanclr4unity](https://github.com/focus-creative-games/leanclr4unity) 的示例项目。入口场景 `main`，主逻辑见 `Assets/Hello.cs`。
 
-## 项目简介
+## 演示内容
 
-`leanclr4unity_demo` 用于演示如何在 Unity 中使用 `leanclr4unity`。  
-示例尽量保持精简，便于快速验证运行流程与平台构建。
+1. **LeanCLR 替代 IL2CPP**：打包时启用 LeanCLR（`Project Settings → LeanCLR`），由 LeanCLR 处理脚本与 AOT，不再走 IL2CPP。
+2. **场景与 AB 脚本还原**：主包程序集里的 `MonoBehaviour` 可正常挂在场景和 AssetBundle 上（示例：`test.prefab` 上的 `Print`）。
+3. **Lazy Loaded Assembly**：`LazyLoaded` 不进主包；运行时从 `StreamingAssets` 加载 `LazyLoaded.dll.bytes`，再反射调用 `Test.Run`。
+4. **限制**：**不要**在场景、Prefab、AB 等资源上挂载 lazy 程序集里的脚本，否则会出现 Missing Script。原理见 [HybridCLR — MonoBehaviour 支持](https://www.hybridclr.cn/docs/basic/monobehaviour)。
 
-## 示例场景与脚本
+## 使用
 
-- 示例场景：`main`
-- 包含脚本：
-  - `Hello`：在 `Update` 中打印日志
-  - `RotateCube`：旋转场景中的对象
+**Editor 试玩**
 
-## 目录结构（关键部分）
+1. 打开 `Assets/Scenes/main.unity`。
+2. 若无 `StreamingAssets` 下的 `.bytes`，先执行：
+   - `Build → CompileAndCopyLazyLoadDllToStreamingAssets`
+   - `Build → BuildTestPrefabAssetBundleAndCopyToStreamingAssets`
+3. 点 Play。Editor 下不会 `Assembly.Load` DLL，但可测 AB 与反射。
 
-- `Assets/Scenes/main.unity`：示例场景
-- `Assets/Hello.cs`：日志输出逻辑
-- `Assets/RotateCube.cs`：物体旋转逻辑
+**打 Player 包**
 
-## 使用方式
+1. 选好 Build Settings 里的目标平台。
+2. 执行上面两个 Build 菜单（需与目标平台一致）。
+3. Build（已验证 WebGL、Win64）。
 
-1. 使用 Unity 打开本项目目录。
-2. 在 `Project` 面板中打开 `Assets/Scenes/main.unity`。
-3. 点击 `Play` 运行场景：
-   - 在 Console 中可看到 `Hello` 脚本输出的日志；
-   - 场景对象会按 `RotateCube` 逻辑持续旋转。
+## 链接
 
-## 构建说明
-
-- WebGL：`File -> Build Settings -> WebGL -> Build`
-- Win64：`File -> Build Settings -> PC, Mac & Linux Standalone -> Target Platform: Windows -> Build`
-
-## 平台支持
-
-- 已验证支持：`WebGL`、`Win64`
-- 其他平台理论上也可支持，但尚未测试
-
-## 相关链接
-
-- leanclr4unity: <https://github.com/focus-creative-games/leanclr4unity>
+- [leanclr4unity](https://github.com/focus-creative-games/leanclr4unity)

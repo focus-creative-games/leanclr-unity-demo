@@ -17,3 +17,8 @@ MonoBehaviour:
     layoutValidation: 0
     ruleFiles:
     - Assets\LeanCLR\aot.xml
+    lazyLoadedAssemblyNames:
+    - LazyLoaded
+  gcSettings:
+    mode: 0
+    enableGCDebug: 0

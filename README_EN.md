@@ -1,43 +1,30 @@
 # leanclr4unity_demo
 
-This project is a demo project for [leanclr4unity](https://github.com/focus-creative-games/leanclr4unity).
+Sample project for [leanclr4unity](https://github.com/focus-creative-games/leanclr4unity). Entry scene: `main`. Main logic: `Assets/Hello.cs`.
 
-## Overview
+## What it demonstrates
 
-`leanclr4unity_demo` shows a minimal Unity integration example for `leanclr4unity`.  
-The project is intentionally lightweight so you can quickly validate runtime behavior and platform builds.
+1. **LeanCLR instead of IL2CPP** — LeanCLR is enabled (`Project Settings → LeanCLR`) for player builds; scripts and AOT go through LeanCLR, not IL2CPP.
+2. **Script restoration on scenes & AssetBundles** — `MonoBehaviour` from assemblies in the main build work on scenes and ABs (e.g. `Print` on `test.prefab`).
+3. **Lazy loaded assembly** — `LazyLoaded` is not in the main package; at runtime load `LazyLoaded.dll.bytes` from `StreamingAssets`, then call `Test.Run` via reflection.
+4. **Limitation** — **Do not** put scripts from lazy assemblies on scenes, prefabs, or AssetBundles; you will get Missing Script. See [HybridCLR — MonoBehaviour support](https://www.hybridclr.cn/docs/basic/monobehaviour).
 
-## Demo Scene and Scripts
+## Usage
 
-- Demo scene: `main`
-- Included scripts:
-  - `Hello`: prints logs in `Update`
-  - `RotateCube`: rotates objects in the scene
+**Play in Editor**
 
-## Key Project Structure
+1. Open `Assets/Scenes/main.unity`.
+2. If `StreamingAssets/*.bytes` are missing, run:
+   - `Build → CompileAndCopyLazyLoadDllToStreamingAssets`
+   - `Build → BuildTestPrefabAssetBundleAndCopyToStreamingAssets`
+3. Press Play. The Editor skips `Assembly.Load` for the DLL, but AB loading and reflection still run.
 
-- `Assets/Scenes/main.unity`: demo scene
-- `Assets/Hello.cs`: logging behavior
-- `Assets/RotateCube.cs`: cube/object rotation behavior
+**Player build**
 
-## How to Run
+1. Select the target platform in Build Settings.
+2. Run the two Build menu items above (per platform).
+3. Build (tested on WebGL and Win64).
 
-1. Open this project with Unity.
-2. Open `Assets/Scenes/main.unity` in the `Project` window.
-3. Press `Play`:
-   - Logs from `Hello` appear in the Console.
-   - Scene objects rotate continuously via `RotateCube`.
+## Links
 
-## Build Instructions
-
-- WebGL: `File -> Build Settings -> WebGL -> Build`
-- Win64: `File -> Build Settings -> PC, Mac & Linux Standalone -> Target Platform: Windows -> Build`
-
-## Platform Support
-
-- Verified: `WebGL`, `Win64`
-- Other platforms are expected to work as well, but have not been tested
-
-## Related Link
-
-- leanclr4unity: <https://github.com/focus-creative-games/leanclr4unity>
+- [leanclr4unity](https://github.com/focus-creative-games/leanclr4unity)

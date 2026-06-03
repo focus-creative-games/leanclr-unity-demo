@@ -9,3 +9,6 @@
 /*.log
 /Packages/packages-lock.json
 /Release-*/
+/.vs
+/obj
+/Assets/StreamingAssets
