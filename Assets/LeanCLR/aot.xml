@@ -13,4 +13,5 @@
       <method name="Update" aot="0" />
     </type>
   </assembly>
+  <assembly fullname="LazyLoaded" aot="0"/>
 </aot>
