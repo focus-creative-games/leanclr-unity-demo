@@ -21,4 +21,4 @@ MonoBehaviour:
     - LazyLoaded
   gcSettings:
     mode: 0
-    enableGCDebug: 0
+    enableGCDebug: 1

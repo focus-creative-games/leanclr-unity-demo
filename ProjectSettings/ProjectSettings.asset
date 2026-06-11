@@ -797,7 +797,8 @@ PlayerSettings:
   suppressCommonWarnings: 1
   allowUnsafeCode: 1
   useDeterministicCompilation: 1
-  additionalIl2CppArgs: --compiler-flags="-DUNITY_VERSION=60000400 -DLEANCLR_GC_MARK_SWEEP=1"
+  additionalIl2CppArgs: --compiler-flags="-DUNITY_VERSION=60000400 -DLEANCLR_GC_MARK_SWEEP=1
+    -DLEANCLR_GC_DEBUG=1 -DLEANCLR_PLACEHOLDER_ASSEMBLY_NAMES=LazyLoaded"
   scriptingRuntimeVersion: 1
   gcIncremental: 1
   gcWBarrierValidation: 0

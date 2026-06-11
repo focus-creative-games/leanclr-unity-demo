@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3777672604430462627}
   - component: {fileID: -4852239334137588061}
+  - component: {fileID: 2679446705295466743}
   m_Layer: 0
   m_Name: test
   m_TagString: Untagged
@@ -44,3 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea610a8f6f42f64b82e37c01f83448b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LazyLoaded::Print
+--- !u!114 &2679446705295466743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7920507901912208249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09db1e6d10634dd45b62150709917218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LazyLoaded::Movement
