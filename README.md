@@ -1,6 +1,6 @@
-# leanclr4unity_demo
+# leanclr-unity-demo
 
-[leanclr4unity](https://github.com/focus-creative-games/leanclr4unity) 的示例项目。入口场景 `main`，主逻辑见 `Assets/Hello.cs`。
+[leanclr-unity](https://github.com/focus-creative-games/leanclr-unity) 的示例项目。入口场景 `main`，主逻辑见 `Assets/Hello.cs`。
 
 ## 演示内容
 
@@ -11,7 +11,7 @@
 ## **限制**
 
 - **不要**在场景、Prefab、AB 等资源上挂载 lazy 程序集里的脚本，否则会出现 Missing Script。原理见 [HybridCLR — MonoBehaviour 支持](https://www.hybridclr.cn/docs/basic/monobehaviour)。
-- 如果Lazy Loaded也有部分代码被编译到aot（即没有在aot.xml中对该程序集禁用aot），则要求加载Lazy Loaded程序集必须跟构建过程中的生成的裁剪后的aot dll完全一致。因此并不能直接使用 Compile Dll生成的程序集，必须使用打包时生成的裁剪后的aot dll。如果你有hybridclr使用经验，可以理解为lazy loaded程序集必须来自打包过程中生成的AssemblyPostStripped目录下的dll。目前leanclr4unity并没有主动复制构建过程中生成的aot dll，因此需要手动从 `Library/Bee/artifacts` 目录下查找并复制。我们很快会彻底解决这个问题。
+- 如果Lazy Loaded也有部分代码被编译到aot（即没有在aot.xml中对该程序集禁用aot），则要求加载Lazy Loaded程序集必须跟构建过程中的生成的裁剪后的aot dll完全一致。因此并不能直接使用 Compile Dll生成的程序集，必须使用打包时生成的裁剪后的aot dll。如果你有hybridclr使用经验，可以理解为lazy loaded程序集必须来自打包过程中生成的AssemblyPostStripped目录下的dll。目前leanclr-unity并没有主动复制构建过程中生成的aot dll，因此需要手动从 `Library/Bee/artifacts` 目录下查找并复制。我们很快会彻底解决这个问题。
 
 ## 使用
 
@@ -31,4 +31,4 @@
 
 ## 链接
 
-- [leanclr4unity](https://github.com/focus-creative-games/leanclr4unity)
+- [leanclr-unity](https://github.com/focus-creative-games/leanclr-unity)

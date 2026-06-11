@@ -1,6 +1,6 @@
-# leanclr4unity_demo
+# leanclr-unity-demo
 
-Sample project for [leanclr4unity](https://github.com/focus-creative-games/leanclr4unity). Entry scene: `main`. Main logic: `Assets/Hello.cs`.
+Sample project for [leanclr-unity](https://github.com/focus-creative-games/leanclr-unity). Entry scene: `main`. Main logic: `Assets/Hello.cs`.
 
 ## What it demonstrates
 
@@ -11,7 +11,7 @@ Sample project for [leanclr4unity](https://github.com/focus-creative-games/leanc
 ## Limitations
 
 - **Do not** attach scripts from lazy assemblies to scenes, prefabs, AssetBundles, or other assets — you will get Missing Script. See [HybridCLR — MonoBehaviour support](https://www.hybridclr.cn/docs/basic/monobehaviour).
-- If part of a Lazy Loaded assembly is still compiled to AOT (i.e. AOT is not disabled for that assembly in `aot.xml`), the DLL loaded at runtime must match exactly the **stripped AOT DLL** produced during the build. You cannot use the assembly from **Compile Dll** directly; you must use the stripped AOT DLL from the player build. With HybridCLR experience: treat it like lazy loaded assemblies must come from the `AssemblyPostStripped` DLLs under the build output. leanclr4unity does not copy those build-time AOT DLLs for you yet — copy them manually from `Library/Bee/artifacts`. This will be automated soon.
+- If part of a Lazy Loaded assembly is still compiled to AOT (i.e. AOT is not disabled for that assembly in `aot.xml`), the DLL loaded at runtime must match exactly the **stripped AOT DLL** produced during the build. You cannot use the assembly from **Compile Dll** directly; you must use the stripped AOT DLL from the player build. With HybridCLR experience: treat it like lazy loaded assemblies must come from the `AssemblyPostStripped` DLLs under the build output. leanclr-unity does not copy those build-time AOT DLLs for you yet — copy them manually from `Library/Bee/artifacts`. This will be automated soon.
 
 ## Usage
 
@@ -31,4 +31,4 @@ Sample project for [leanclr4unity](https://github.com/focus-creative-games/leanc
 
 ## Links
 
-- [leanclr4unity](https://github.com/focus-creative-games/leanclr4unity)
+- [leanclr-unity](https://github.com/focus-creative-games/leanclr-unity)
